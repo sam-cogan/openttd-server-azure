@@ -38,6 +38,7 @@ resource "azurerm_container_group" "openttd_acr" {
   location = azurerm_resource_group.openttd_rg.location
   resource_group_name = azurerm_resource_group.openttd_rg.name
   ip_address_type = "public"
+  dns_name_label = "${var.prefix}-acr"
   os_type = "Linux"
 
   container {
