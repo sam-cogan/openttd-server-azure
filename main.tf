@@ -49,7 +49,12 @@ resource "azurerm_container_group" "openttd_acr" {
 
     ports {
       port = 3979
+      protocol = "tcp"
+    }
 
+    ports {
+      port = 3980
+      protocol = "udp"
     }
 
 
