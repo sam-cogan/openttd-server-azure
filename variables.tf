@@ -17,3 +17,7 @@ variable "openttd_admin_ips" {
 variable "tags" {
   type = map(string)
 }
+
+variable "admin_password" {
+  default = ""
+}
