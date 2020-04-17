@@ -121,12 +121,11 @@ resource "azurerm_container_group" "openttd_acr" {
 
     ports {
       port = 3979
-      protocol = "TCP"
+
     }
-    ports {
-      port = 3979
-      protocol = "UDP"
-    }
+
+
+
 
     environment_variables = {
       loadgame = "false"
