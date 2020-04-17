@@ -17,7 +17,7 @@ resource "azurerm_virtual_network" "openttd_vnet" {
     "10.0.0.0/16"]
 }
 
-resource "azurerm_subnet" "example" {
+resource "azurerm_subnet" "acr_subnet" {
   name = "acr-subnet"
   resource_group_name = azurerm_resource_group.openttd_rg.name
   virtual_network_name = azurerm_virtual_network.openttd_vnet.name
@@ -36,8 +36,8 @@ resource "azurerm_subnet" "example" {
 }
 
 
-resource "azurerm_network_security_group" "example" {
-  name = "acceptanceTestSecurityGroup1"
+resource "azurerm_network_security_group" "openttd_subnet" {
+  name = "${var.prefix}-nsg"
   location = azurerm_resource_group.openttd_rg.location
   resource_group_name = azurerm_resource_group.openttd_rg.name
 
