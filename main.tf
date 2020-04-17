@@ -92,11 +92,11 @@ resource "azurerm_storage_account" "openttd-storage" {
   account_tier = "Standard"
   account_replication_type = "LRS"
 
-  network_rules {
-    default_action = "Deny"
-    virtual_network_subnet_ids = [
-      azurerm_subnet.acr_subnet.id]
-  }
+  #network_rules {
+  #  default_action = "Deny"
+  #  virtual_network_subnet_ids = [
+  #    azurerm_subnet.acr_subnet.id]
+  #}
 
 }
 
