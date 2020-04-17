@@ -128,7 +128,7 @@ resource "azurerm_container_group" "openttd_acr" {
       protocol = "UDP"
     }
 
-    environment_variables {
+    environment_variables = {
       loadgame = "false"
     }
     volume {
