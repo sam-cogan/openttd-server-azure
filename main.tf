@@ -41,7 +41,7 @@ resource "azurerm_network_security_group" "openttd_subnet" {
     protocol = "*"
     source_port_range = "*"
     destination_port_range = "3979"
-    source_address_prefixes = var.openttd_allowed_ips
+    source_address_prefixes = "8"
     destination_address_prefix = "*"
   }
   security_rule {
@@ -116,6 +116,11 @@ resource "azurerm_network_interface" "main" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.acr_vm_ip.id
   }
+}
+
+resource "azurerm_subnet_network_security_group_association" "openttd_subnet_assoc" {
+  subnet_id                 = azurerm_subnet.vm_subnet.id
+  network_security_group_id = azurerm_network_security_group.openttd_subnet.id
 }
 
 data "template_file" "cloudconfig" {
