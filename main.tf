@@ -51,7 +51,7 @@ resource "azurerm_network_security_group" "openttd_subnet" {
     access = "Allow"
     protocol = "Tcp"
     source_port_range = "*"
-    destination_port_range = "2"
+    destination_port_range = "22"
     source_address_prefixes = var.openttd_admin_ips
     destination_address_prefix = "*"
   }
